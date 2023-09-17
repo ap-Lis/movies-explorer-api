@@ -4,9 +4,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-
 const limiterHandler = require('./middlewares/rate-limiter');
-
 const router = require('./routes/index');
 const errorHandler = require('./middlewares/error-handler');
 const corsHandler = require('./middlewares/cors');
