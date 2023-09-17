@@ -52,7 +52,9 @@ module.exports.updateUser = (req, res, next) => {
       res.send(users);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
+      if (err.code === 11000) {
+        next(new DuplicateKeyError(NOT_UNIQ_EMAIL_MESSAGE));
+      } else if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadRequestError(WRONG_DATA_MESSAGE));
       } else {
         next(err);

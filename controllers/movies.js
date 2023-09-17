@@ -10,7 +10,7 @@ const {
 } = require('../utils/constants');
 
 module.exports.getMovie = (req, res, next) => {
-  Movie.find({}, { strictPopulate: false })
+  Movie.find({ owner: req.user._id }, { strictPopulate: false })
     .populate('owner')
     .then((movies) => res.send({ data: movies }))
     .catch(next);

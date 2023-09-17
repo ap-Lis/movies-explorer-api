@@ -1,4 +1,5 @@
 const { celebrate, Joi } = require('celebrate');
+const { urlPattern } = require('../utils/constants');
 
 const validateUser = celebrate({
   body: Joi.object().keys({
@@ -14,9 +15,9 @@ const validateCreateMovie = celebrate({
     duration: Joi.number().required(),
     year: Joi.string().required(),
     description: Joi.string().required(),
-    image: Joi.string().uri().required(),
-    trailerLink: Joi.string().uri().required(),
-    thumbnail: Joi.string().uri().required(),
+    image: Joi.string().regex(urlPattern).required(),
+    trailerLink: Joi.string().regex(urlPattern).required(),
+    thumbnail: Joi.string().regex(urlPattern).required(),
     movieId: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
@@ -25,7 +26,7 @@ const validateCreateMovie = celebrate({
 
 const validateDeleteMovie = celebrate({
   params: Joi.object().keys({
-    id: Joi.string().hex().length(24),
+    id: Joi.string().required().hex().length(24),
   }),
 });
 

@@ -9,8 +9,9 @@ const router = require('./routes/index');
 const errorHandler = require('./middlewares/error-handler');
 const corsHandler = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { DEFAULT_PORT, DEFAULT_DB_URL } = require('./utils/credentials');
 
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = DEFAULT_PORT, DB_URL = DEFAULT_DB_URL } = process.env;
 
 const app = express();
 
