@@ -1,6 +1,6 @@
 const allowedCors = [
-  'http://ap-final.nomoredomain.nomoredomainsrocks.ru/',
-  'https://ap-final.nomoredomain.nomoredomainsrocks.ru/',
+  'http://ap-final.nomoredomain.nomoredomainsrocks.ru',
+  'https://ap-final.nomoredomain.nomoredomainsrocks.ru',
   'localhost:3000',
   'http://localhost:3000',
 ];
